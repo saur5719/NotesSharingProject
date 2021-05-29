@@ -1,0 +1,76 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static %}
+<body>
+
+<div class="container mt-3">
+
+<h2 style="font-weight:bold;
+font-size:60px;
+font-family:'Monotype Corsiva';
+color:DarkRed;
+text-align:center;">Study Notes</h2>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="static/images/notes1.jpg" alt="Los Angeles" width="1500" height="500">
+    </div>
+    <div class="carousel-item">
+      <img src="static/images/notes2.jpg" alt="Chicago" width="1500" height="500">
+    </div>
+    <div class="carousel-item">
+      <img src="static/images/notes3.jpg" alt="New York" width="1500" height="500">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+</div>
+<h4 class="text-center text-danger mt-5 mb-5" style="font-family:'Monotype Corsiva';font-size:50px;">Just 4 step to follow</h4>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="box1">
+        <p class="halfcircle"><i class="text-center fas fa-user-circle text-white mt-4" style="font-size:80px;"></i></p>
+        <p class="halfcircleBottom">Create Account</i></p>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="box1">
+        <p class="halfcircle"><i class="text-center fas fa-sign-in-alt text-white mt-4" style="font-size:80px;"></i></p>
+        <p class="halfcircleBottom">Login</i></p>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="box1">
+        <p class="halfcircle"><i class="text-center fas fa-upload text-white mt-4" style="font-size:80px;"></i></p>
+        <p class="halfcircleBottom">Upload Notes</i></p>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="box1">
+        <p class="halfcircle"><i class="text-center fas fa-download text-white mt-4" style="font-size:80px;"></i></p>
+        <p class="halfcircleBottom">Download Notes</i></p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<br><br>
+{% endblock %}

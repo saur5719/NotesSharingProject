@@ -1,0 +1,65 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2 class="text-center">EXISTING CUSTOMERS</h2><hr>
+            <p>By Creating an Account with our website you will be able to move through the notes uploading &
+                downloading process and more </p>
+            <center><a href="{% url 'login' %}" class="btn btn-danger text-white mt-5">GoTo Login Page</a></center>
+
+        </div>
+        <div class="col-sm-6">
+            <h2 class="text-center">REGISTER WITH US</h2><hr>
+            <p style="color:red;">If you don't have an Account, Please SignUp...
+            <br>* is Required Field</p>
+            <form method="post">
+                {% csrf_token%}
+                <label>First Name</label><span style="color:red;"> *</span>
+                <input type="text" class="form-control" placeholder="Enter First Name" name="fName" required>
+                <label>Last Name</label><span style="color:red;"> *</span>
+                <input type="text" class="form-control" placeholder="Enter Last Name" name="lName" required>
+                <label>Email Address</label><span style="color:red;"> *</span>
+                <input type="email" class="form-control" placeholder="Enter EmailID" name="email" required>
+                <label>Password</label><span style="color:red;"> *</span>
+                <input type="password" class="form-control" placeholder="Enter Password" name="pwd" required>
+                <label>Contact</label><span style="color:red;"> *</span>
+                <input type="tel" class="form-control" placeholder="Enter Contact No." name="contact" required>
+                <label>Branch</label><span style="color:red;"> *</span>
+                <select class="form-control" name="branch" required>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="Civil">Civil</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Chemical">Chemical</option>
+                    <option value="Inforamation Technology">Information Technology</option>
+                </select>
+                <label>Role</label><span style="color:red;"> *</span>
+                <select class="form-control" name="role" required>
+                    <option value="Student">Student</option>
+                    <option value="Teacher">Teacher</option>
+                </select>
+                <input type="submit" class="btn btn-danger mt-2" value="SIGNUP">
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert('SignUp Successfully');
+    window.location=('{% url 'login' %}');
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Something went wrong, Try Again');
+</script>
+{% endifequal %}
+
+{% endblock %}

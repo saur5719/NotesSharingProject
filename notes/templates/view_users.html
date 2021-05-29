@@ -1,0 +1,36 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block body %}
+<div class="container mt-5">
+    <h2 class="text-center">VIEW USERS</h2><hr>
+    <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Sr. No.</th>
+        <th>Full Name</th>
+        <th>Branch</th>
+        <th>Email ID</th>
+        <th>Contact</th>
+        <th>Role</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in users %}
+      <tr>
+          <td>{{forloop.counter}}</td>
+          <td style="text-transform:capitalize">{{i.user.first_name}} {{i.user.last_name}}</td>
+          <td>{{i.branch}}</td>
+          <td>{{i.user.username}}</td>
+          <td>{{i.contact}}</td>
+          <td>{{i.role}}</td>
+          <td><a href="{% url 'delete_users' i.user.id %}" class="btn btn-danger" onclick="return confirm('Are you sure? you want to delete..')">Delete</a></td>
+
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+</div>
+{% endblock %}

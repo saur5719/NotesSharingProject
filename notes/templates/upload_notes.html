@@ -1,0 +1,64 @@
+{% extends 'user_nav.html' %}
+{% load static %}
+{% block body %}
+<div class="container mt-5">
+    <h2 class="text-center">UPLOAD NOTES</h2><hr>
+    <div class="row">
+        <div class="col-sm-6">
+            <p style="color:red;">* is Required Field</p>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token%}
+                <label>Branch</label><span style="color:red;"> *</span>
+                <select class="form-control" name="branch" required>
+                    <option value="">---Select Branch---</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="Civil">Civil</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Chemical">Chemical</option>
+                    <option value="Inforamation Technology">Information Technology</option>
+                </select>
+                <label>Subject</label><span style="color:red;"> *</span>
+                <input type="text" class="form-control" placeholder="Enter Subject" name="subject" required>
+                <label>Notes File</label><span style="color:red;"> *</span>
+                <input type="file" class="form-control" name="notesfile" required>
+                <label>File Type</label><span style="color:red;"> *</span>
+                <select class="form-control" name="filetype" required>
+                    <option value="">---Select File Type---</option>
+                    <option value="PDF">PDF</option>
+                    <option value="PPT">PPT</option>
+                    <option value="DOC">DOC/DOCX</option>
+                    <option value="TXT">TXT</option>
+                    <option value="Image">Image</option>
+                    <option value="ZIP">ZIP/RAR</option>
+                </select>
+                <label>Description</label>
+                <textarea class="form-control" name="description">
+
+                </textarea>
+                <input type="submit" class="btn btn-danger mt-2" value="UPLOAD">
+            </form>
+
+        </div>
+        <div class="col-sm-6">
+            <img src="{% static 'images/study_notes.jpg' %}" class="mt-4 ml-5">
+        </div>
+    </div>
+
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert('Notes Uploaded Successfully');
+    window.location=('{% url 'view_mynotes' %}');
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Something went wrong, Try Again');
+</script>
+{% endifequal %}
+
+{% endblock %}
